@@ -31,3 +31,26 @@ a {
   justify-content: center;
   align-items: center;
 }
+
+.outputDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  margin-bottom: 1rem;
+  background-color: #903749;
+  font-weight: 700;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 300px;
+}
+
+#blackButton {
+  background-color: black;
+}
+
+#blackButton a {
+  color: white;
+}
