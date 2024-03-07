@@ -1,12 +1,26 @@
 const questionArr = [
   'Wieviel Einwohner hat Österreich?',
   'Wie heißt Österreichs Bundespräsident?',
-  'Wieviel Bundesländer hat Österreich?'
+  'Wieviel Bundesländer hat Österreich?',
+  'Welche Farbe hat Milch?',
+  'Wer ist dumm?',
+  'Was ist Gelb?',
+  'Was ist Grün'
 ]
-const answerArr = [['8 Millionen'], ['Alexander Van der Bellen'], ['9']]
+const answerArr = [
+  ['8 Millionen'],
+  ['Alexander Van der Bellen'],
+  ['9'],
+  ['Weiß'],
+  ['Du'],
+  ['Gelb'],
+  ['Grün']
+]
+
 let answeredQuestions = []
 let currentQuestionIndex
 let streakValue = 0
+
 let questionOutput = document.getElementById('questionOutput')
 let inputField = document.getElementById('inputField')
 let submitButton = document.getElementById('submit')
@@ -18,8 +32,12 @@ let congratsField = document.getElementById('congratsField')
 let streak = document.getElementById('streak')
 let beginAgain = document.getElementById('vonVornAnfangen')
 addToAnswerButton.style.display = 'none'
+
+for (let i = 0; i < answerArr.length; i++) {
+  answerArr[i][0] = answerArr[i][0].toLowerCase()
+}
+
 const generateQuestion = () => {
-  console.log('yo')
   correctAnswerDiv.style.display = 'none'
   addToAnswerButton.style.display = 'none'
   questionOutput.innerHTML = ''
@@ -42,15 +60,17 @@ const generateQuestion = () => {
     congratsField.style.display = 'flex'
   }
 }
+
 const addToAnswer = () => {
   let input = inputField.value
   answerArr[currentQuestionIndex].push(input)
   console.log(answerArr)
   setTimeout(generateQuestion, 0.2 * 1000)
 }
+
 const checkIfTrue = () => {
   let answer = inputField.value
-  if (answerArr[currentQuestionIndex].includes(answer)) {
+  if (answerArr[currentQuestionIndex].includes(answer.toLowerCase())) {
     inputField.style.backgroundColor = 'green'
     answeredQuestions.push(questionArr[currentQuestionIndex])
     streakValue++
@@ -67,6 +87,7 @@ const checkIfTrue = () => {
     streak.style.display = 'none'
   }
 }
+
 const startAgain = () => {
   congratsField.style.display = 'none'
   questionDiv.style.display = 'flex'
@@ -76,6 +97,7 @@ const startAgain = () => {
   answeredQuestions = []
   generateQuestion()
 }
+
 document.addEventListener('DOMContentLoaded', generateQuestion)
 submitButton.addEventListener('click', checkIfTrue)
 beginAgain.addEventListener('click', startAgain)
