@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BS-Schärding</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="header">
+      <h1>Q&A</h1>
+    </div>
+    <div class="main">
+      <div class="question" id="questionDiv">
+        <h4 id="questionOutput"></h4>
+      </div>
+      <div class="answer">
+        <input type="text" id="inputField" />
+      </div>
+      <div class="correctAnswer" id="correctAnswerDiv">
+        <p class="blackText">Richtige Antwort:</p>
+        <br />
+        <p id="correctAnswer"></p>
+      </div>
+      <button class="wideButton" id="addToAnswer">
+        Nächstes mal gelten lassen?
+      </button>
+      <button id="submit" class="wideButton">Submit</button>
+      <div id="congratsField">
+        <h2>Gratuliere!<br />Alle Fragen beantwortet</h2>
+        <button class="wideButton" id="vonVornAnfangen">
+          Erneut abfragen lassen?
+        </button>
+      </div>
+      <div class="streakCounter" id="streak"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

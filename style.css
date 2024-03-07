@@ -1,0 +1,129 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  background-color: #2b2e4a;
+  color: #e84545;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.question {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 300px;
+  height: 40px;
+  min-height: 40px;
+  background-color: #53354a;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  color: #e84545;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 0.5rem;
+}
+
+.answer {
+  display: flex;
+}
+#inputField {
+  display: flex;
+  background-color: #903749;
+  margin-bottom: 1rem;
+  width: 300px;
+  height: 40px;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.Button {
+  display: flex;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  width: 75px;
+  height: 25px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.wideButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 80%;
+  height: 30px;
+  margin-bottom: 1rem;
+  border-radius: 15px;
+  background-color: black;
+  color: white;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.wideButton:active {
+  background-color: white;
+}
+.blackText {
+  margin-bottom: 0;
+  color: black;
+  font-weight: 700;
+}
+.correctAnswer {
+  background-color: #903749;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  max-width: 250px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+#correctAnswer {
+  color: white;
+  margin-top: 0;
+}
+#congratsField {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: black;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+#vonVornAnfangen {
+  color: black;
+  background-color: white;
+  padding-left: 1rem;
+  padding-right: 2rem;
+  box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px;
+}
+.streakCounter {
+  background-color: black;
+  color: white;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 1rem;
+}
