@@ -48,14 +48,12 @@ let streakValue = 0
 let questionOutput = document.getElementById('questionOutput')
 let inputField = document.getElementById('inputField')
 let submitButton = document.getElementById('submit')
-let addToAnswerButton = document.getElementById('addToAnswer')
 let correctAnswerOutput = document.getElementById('correctAnswer')
 let correctAnswerDiv = document.getElementById('correctAnswerDiv')
 let questionDiv = document.getElementById('questionDiv')
 let congratsField = document.getElementById('congratsField')
 let streak = document.getElementById('streak')
 let beginAgain = document.getElementById('vonVornAnfangen')
-addToAnswerButton.style.display = 'none'
 
 for (let i = 0; i < answerArr.length; i++) {
   answerArr[i][0] = answerArr[i][0].toLowerCase()
@@ -65,7 +63,6 @@ function similarityPercentage (str1, str2) {
   const maxLength = Math.max(str1.length, str2.length)
   const distance = levenshteinDistance(str1, str2)
   const similarity = ((maxLength - distance) / maxLength) * 100
-  console.log(similarity)
   return similarity.toFixed(2) // Runde auf zwei Dezimalstellen
 }
 
@@ -93,7 +90,6 @@ function levenshteinDistance (str1, str2) {
 
 const generateQuestion = () => {
   correctAnswerDiv.style.display = 'none'
-  addToAnswerButton.style.display = 'none'
   questionOutput.innerHTML = ''
   inputField.value = ''
   inputField.style.backgroundColor = '#903749'
@@ -115,12 +111,6 @@ const generateQuestion = () => {
   }
 }
 
-const addToAnswer = () => {
-  let input = inputField.value
-  answerArr[currentQuestionIndex].push(input)
-  console.log(answerArr)
-}
-
 const checkIfTrue = () => {
   let answer = inputField.value
 
@@ -129,10 +119,7 @@ const checkIfTrue = () => {
     answer
   )
 
-  console.log(answerArr[currentQuestionIndex][0])
-  console.log(answer)
-  console.log(similarityPercentageResult)
-  if (similarityPercentageResult >= 60) {
+  if (similarityPercentageResult >= 65) {
     inputField.style.backgroundColor = 'green'
     answeredQuestions.push(questionArr[currentQuestionIndex])
     streakValue++
@@ -141,8 +128,6 @@ const checkIfTrue = () => {
     setTimeout(generateQuestion, 0.75 * 1000)
   } else {
     inputField.style.backgroundColor = 'red'
-    addToAnswerButton.style.display = 'flex'
-    addToAnswerButton.addEventListener('click', addToAnswer)
     correctAnswerDiv.style.display = 'block'
     correctAnswerOutput.innerHTML = answerArr[currentQuestionIndex][0]
     streakValue = 0
