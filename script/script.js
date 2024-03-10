@@ -109,6 +109,7 @@ const checkIfTrue = () => {
     correctAnswerOutput.innerHTML = answerArr[currentQuestionIndex][0]
     streakValue = 0
     streak.style.display = 'none'
+    setTimeout(generateQuestion, 2.5 * 1000)
   }
 }
 
