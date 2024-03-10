@@ -20,9 +20,14 @@ button {
   margin-bottom: 1rem;
 }
 
+button:hover {
+  background-color: gray;
+  scale: 1.2;
+}
+
 a {
   color: black;
-  text-decoration: overline;
+  text-decoration: none;
 }
 
 .fragenOutput {
