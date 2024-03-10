@@ -132,7 +132,7 @@ const checkIfTrue = () => {
   console.log(answerArr[currentQuestionIndex][0])
   console.log(answer)
   console.log(similarityPercentageResult)
-  if (similarityPercentageResult >= 70) {
+  if (similarityPercentageResult >= 60) {
     inputField.style.backgroundColor = 'green'
     answeredQuestions.push(questionArr[currentQuestionIndex])
     streakValue++
