@@ -45,13 +45,14 @@ let output = document.getElementById('fragenOutput')
 
 for (i = 0; i < questionArr.length; i++) {
   const newDiv = document.createElement('div')
-  let question = document.createTextNode(questionArr[i])
-  let answer = document.createTextNode(answerArr[i][0])
-  let br = document.createElement('br')
+  let question = document.createElement('p')
+  question.innerHTML = questionArr[i]
+  let answer = document.createElement('p')
+  answer.innerHTML = answerArr[i][0]
   newDiv.appendChild(question)
-  newDiv.appendChild(br)
   newDiv.appendChild(answer)
 
   output.appendChild(newDiv)
   newDiv.classList.add('outputDiv')
+  question.classList.add('question')
 }
