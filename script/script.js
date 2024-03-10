@@ -89,7 +89,6 @@ const addToAnswer = () => {
   let input = inputField.value
   answerArr[currentQuestionIndex].push(input)
   console.log(answerArr)
-  setTimeout(generateQuestion, 0.2 * 1000)
 }
 
 const checkIfTrue = () => {
@@ -109,7 +108,7 @@ const checkIfTrue = () => {
     correctAnswerOutput.innerHTML = answerArr[currentQuestionIndex][0]
     streakValue = 0
     streak.style.display = 'none'
-    setTimeout(generateQuestion, 2.5 * 1000)
+    setTimeout(generateQuestion, 2 * 1000)
   }
 }
 
