@@ -61,6 +61,36 @@ for (let i = 0; i < answerArr.length; i++) {
   answerArr[i][0] = answerArr[i][0].toLowerCase()
 }
 
+function similarityPercentage (str1, str2) {
+  const maxLength = Math.max(str1.length, str2.length)
+  const distance = levenshteinDistance(str1, str2)
+  const similarity = ((maxLength - distance) / maxLength) * 100
+  console.log(similarity)
+  return similarity.toFixed(2) // Runde auf zwei Dezimalstellen
+}
+
+function levenshteinDistance (str1, str2) {
+  const matrix = []
+
+  for (let i = 0; i <= str1.length; i++) {
+    matrix[i] = [i]
+    for (let j = 1; j <= str2.length; j++) {
+      if (i === 0) {
+        matrix[i][j] = j
+      } else {
+        const cost = str1[i - 1] === str2[j - 1] ? 0 : 1
+        matrix[i][j] = Math.min(
+          matrix[i - 1][j] + 1,
+          matrix[i][j - 1] + 1,
+          matrix[i - 1][j - 1] + cost
+        )
+      }
+    }
+  }
+
+  return matrix[str1.length][str2.length]
+}
+
 const generateQuestion = () => {
   correctAnswerDiv.style.display = 'none'
   addToAnswerButton.style.display = 'none'
@@ -93,7 +123,16 @@ const addToAnswer = () => {
 
 const checkIfTrue = () => {
   let answer = inputField.value
-  if (answerArr[currentQuestionIndex].includes(answer.toLowerCase())) {
+
+  let similarityPercentageResult = similarityPercentage(
+    answerArr[currentQuestionIndex][0],
+    answer
+  )
+
+  console.log(answerArr[currentQuestionIndex][0])
+  console.log(answer)
+  console.log(similarityPercentageResult)
+  if (similarityPercentageResult >= 50) {
     inputField.style.backgroundColor = 'green'
     answeredQuestions.push(questionArr[currentQuestionIndex])
     streakValue++
