@@ -137,7 +137,7 @@ const checkIfTrue = () => {
     similarity.innerHTML =
       Math.floor(similarityPercentageResult) + '% Übereinstimmung'
     submitButton.style.display = 'none'
-    setTimeout(generateQuestion, 0.75 * 1000)
+    setTimeout(generateQuestion, 0.9 * 1000)
   } else {
     nextButton.style.display = 'block'
     inputField.style.backgroundColor = 'red'
