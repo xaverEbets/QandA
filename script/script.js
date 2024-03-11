@@ -45,6 +45,7 @@ let answeredQuestions = []
 let currentQuestionIndex
 let streakValue = 0
 
+let nextButton = document.getElementById('next')
 let questionNumber = document.getElementById('questionNumber')
 let questionOutput = document.getElementById('questionOutput')
 let inputField = document.getElementById('inputField')
@@ -94,6 +95,7 @@ const generateQuestion = () => {
   let questionLength = questionArr.length
   let answeredQuestionsLength = answeredQuestions.length
 
+  nextButton.style.display = 'none'
   questionNumber.innerHTML = answeredQuestionsLength + ' von ' + questionLength
   similarity.innerHTML = ''
   correctAnswerDiv.style.display = 'none'
@@ -135,6 +137,7 @@ const checkIfTrue = () => {
       Math.floor(similarityPercentageResult) + '% Übereinstimmung'
     setTimeout(generateQuestion, 0.75 * 1000)
   } else {
+    nextButton.style.display = 'block'
     inputField.style.backgroundColor = 'red'
     correctAnswerDiv.style.display = 'block'
     correctAnswerOutput.innerHTML = answerArr[currentQuestionIndex][0]
@@ -142,7 +145,6 @@ const checkIfTrue = () => {
     streak.style.display = 'none'
     similarity.innerHTML =
       Math.floor(similarityPercentageResult) + '% Übereinstimmung'
-    setTimeout(generateQuestion, 2 * 1000)
   }
 }
 
@@ -159,3 +161,4 @@ const startAgain = () => {
 document.addEventListener('DOMContentLoaded', generateQuestion)
 submitButton.addEventListener('click', checkIfTrue)
 beginAgain.addEventListener('click', startAgain)
+nextButton.addEventListener('click', generateQuestion)
