@@ -54,6 +54,7 @@ let questionDiv = document.getElementById('questionDiv')
 let congratsField = document.getElementById('congratsField')
 let streak = document.getElementById('streak')
 let beginAgain = document.getElementById('vonVornAnfangen')
+let similarity = document.getElementById('similarity')
 
 for (let i = 0; i < answerArr.length; i++) {
   answerArr[i][0] = answerArr[i][0].toLowerCase()
@@ -89,6 +90,7 @@ function levenshteinDistance (str1, str2) {
 }
 
 const generateQuestion = () => {
+  similarity.innerHTML = ''
   correctAnswerDiv.style.display = 'none'
   questionOutput.innerHTML = ''
   inputField.value = ''
@@ -125,6 +127,7 @@ const checkIfTrue = () => {
     streakValue++
     streak.style.display = 'flex'
     streak.innerHTML = 'Streak: ' + streakValue
+    similarity.innerHTML = similarityPercentageResult
     setTimeout(generateQuestion, 0.75 * 1000)
   } else {
     inputField.style.backgroundColor = 'red'
@@ -132,6 +135,7 @@ const checkIfTrue = () => {
     correctAnswerOutput.innerHTML = answerArr[currentQuestionIndex][0]
     streakValue = 0
     streak.style.display = 'none'
+    similarity.innerHTML = similarityPercentageResult
     setTimeout(generateQuestion, 2 * 1000)
   }
 }
