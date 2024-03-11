@@ -95,6 +95,7 @@ const generateQuestion = () => {
   let questionLength = questionArr.length
   let answeredQuestionsLength = answeredQuestions.length
 
+  submitButton.style.display = 'flex'
   nextButton.style.display = 'none'
   questionNumber.innerHTML = answeredQuestionsLength + ' von ' + questionLength
   similarity.innerHTML = ''
@@ -135,6 +136,7 @@ const checkIfTrue = () => {
     streak.innerHTML = 'Streak: ' + streakValue
     similarity.innerHTML =
       Math.floor(similarityPercentageResult) + '% Übereinstimmung'
+    submitButton.style.display = 'none'
     setTimeout(generateQuestion, 0.75 * 1000)
   } else {
     nextButton.style.display = 'block'
@@ -145,6 +147,7 @@ const checkIfTrue = () => {
     streak.style.display = 'none'
     similarity.innerHTML =
       Math.floor(similarityPercentageResult) + '% Übereinstimmung'
+    submitButton.style.display = 'none'
   }
 }
 
