@@ -45,6 +45,7 @@ let answeredQuestions = []
 let currentQuestionIndex
 let streakValue = 0
 
+let questionNumber = document.getElementById('questionNumber')
 let questionOutput = document.getElementById('questionOutput')
 let inputField = document.getElementById('inputField')
 let submitButton = document.getElementById('submit')
@@ -90,12 +91,15 @@ function levenshteinDistance (str1, str2) {
 }
 
 const generateQuestion = () => {
+  let questionLength = questionArr.length
+  let answeredQuestionsLength = answeredQuestions.length
+
+  questionNumber.innerHTML = answeredQuestionsLength + ' von ' + questionLength
   similarity.innerHTML = ''
   correctAnswerDiv.style.display = 'none'
   questionOutput.innerHTML = ''
   inputField.value = ''
   inputField.style.backgroundColor = '#903749'
-  let questionLength = questionArr.length
   let randomIndex
   if (questionArr.length !== answeredQuestions.length) {
     do {
@@ -127,7 +131,8 @@ const checkIfTrue = () => {
     streakValue++
     streak.style.display = 'flex'
     streak.innerHTML = 'Streak: ' + streakValue
-    similarity.innerHTML = similarityPercentageResult
+    similarity.innerHTML =
+      Math.floor(similarityPercentageResult) + '% Übereinstimmung'
     setTimeout(generateQuestion, 0.75 * 1000)
   } else {
     inputField.style.backgroundColor = 'red'
@@ -135,7 +140,8 @@ const checkIfTrue = () => {
     correctAnswerOutput.innerHTML = answerArr[currentQuestionIndex][0]
     streakValue = 0
     streak.style.display = 'none'
-    similarity.innerHTML = similarityPercentageResult
+    similarity.innerHTML =
+      Math.floor(similarityPercentageResult) + '% Übereinstimmung'
     setTimeout(generateQuestion, 2 * 1000)
   }
 }
